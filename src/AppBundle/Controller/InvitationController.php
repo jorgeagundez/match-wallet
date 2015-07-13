@@ -28,6 +28,8 @@ class InvitationController extends Controller
             // return $this->redirectToRoute('task_success');
         }
 
+        dump($form->isValid());
+
         return array('form' => $form->createView());    
     }
 
