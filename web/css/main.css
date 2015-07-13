@@ -1,0 +1,57 @@
+
+/************/
+/*  HEADER  */
+/************/
+.status p {
+	line-height: 50px;
+	margin: 0;
+}
+
+/*********************/
+/*  COMMON ELEMENTS  */
+/*********************/
+.btn.submit-btn {
+	display: block;
+	margin: 10px auto 30px;
+}
+
+.fos-wrap {
+	margin-top: 100px;
+}
+
+.fos-wrap label {
+	color: #474747;
+	font-weight: lighter;
+}
+
+.horizontal-space {
+	margin-top: 100px;
+}
+
+/****************/
+/*  LOGIN PAGE  */
+/****************/
+
+.login-wrap p {
+	text-align: center;
+}
+
+.login-form .form-control{
+	background: white;
+}
+
+.login-form input:-webkit-autofill, 
+.login-form textarea:-webkit-autofill, 
+.login-form select:-webkit-autofill {
+  background-color: white !important;
+  background-image: none;
+  color: rgb(0, 0, 0);
+}
+
+.confirmation-wrap .panel-title {
+	padding: 30px;
+ 	width: 100%;
+  	display: block;
+  	text-decoration: none;
+}
+

@@ -25,13 +25,18 @@ class Subscribed extends BaseUser
      */
     private $groupToken;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="friendemail", type="string", length=255, nullable=true)
+     */
+    private $friendemail;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
-
-
 
     /**
      * Get id
@@ -64,5 +69,28 @@ class Subscribed extends BaseUser
     public function getGroupToken()
     {
         return $this->groupToken;
+    }
+
+    /**
+     * Set friendemail
+     *
+     * @param string $friendemail
+     * @return Subscribed
+     */
+    public function setFriendemail($friendemail)
+    {
+        $this->friendemail = $friendemail;
+
+        return $this;
+    }
+
+    /**
+     * Get friendemail
+     *
+     * @return string 
+     */
+    public function getFriendemail()
+    {
+        return $this->friendemail;
     }
 }
