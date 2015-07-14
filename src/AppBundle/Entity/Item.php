@@ -42,6 +42,12 @@ class Item
      */
     private $createdAt;
 
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Subscribed", inversedBy="items")
+     */
+    private $user;
+
 
     /**
      * Get id
@@ -120,5 +126,28 @@ class Item
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\Subscribed $user
+     * @return Item
+     */
+    public function setUser(\AppBundle\Entity\Subscribed $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\Subscribed 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

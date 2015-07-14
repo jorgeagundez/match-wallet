@@ -2,6 +2,11 @@
 /************/
 /*  HEADER  */
 /************/
+
+header {
+	margin-bottom: 60px;
+}
+
 .status p {
 	line-height: 50px;
 	margin: 0;

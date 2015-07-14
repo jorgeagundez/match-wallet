@@ -26,6 +26,12 @@ class Subscribed extends BaseUser
     private $groupToken;
 
     /**
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Item", mappedBy="user",cascade={"persist"})
+     */
+    private $items;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="friendemail", type="string", length=255, nullable=true)
@@ -92,5 +98,38 @@ class Subscribed extends BaseUser
     public function getFriendemail()
     {
         return $this->friendemail;
+    }
+
+    /**
+     * Add items
+     *
+     * @param \AppBundle\Entity\Item $items
+     * @return Subscribed
+     */
+    public function addItem(\AppBundle\Entity\Item $items)
+    {
+        $this->items[] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Remove items
+     *
+     * @param \AppBundle\Entity\Item $items
+     */
+    public function removeItem(\AppBundle\Entity\Item $items)
+    {
+        $this->items->removeElement($items);
+    }
+
+    /**
+     * Get items
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getItems()
+    {
+        return $this->items;
     }
 }

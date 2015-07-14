@@ -3,5 +3,13 @@
 {% block title %}AppBundle:AppController:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the AppController:index page</h1>
+
+<section class="user-header">
+	<div class="row">
+		<h3>Welcome <span class="text-capitalize">{{ user.username }}<span></h3>
+		<p>You're matched with <span class="text-capitalize">{{ partner.username }}</span></p>
+	</div>
+</section>
+
+
 {% endblock %}

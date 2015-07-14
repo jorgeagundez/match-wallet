@@ -86,6 +86,8 @@ class InvitationController extends Controller
 
             }else{
 
+                $hostfriend = $hostfriend[0];
+                $user->setFriendemail($hostfriend->getEmail());
                 $em->persist($user);
                 $em->flush();
 

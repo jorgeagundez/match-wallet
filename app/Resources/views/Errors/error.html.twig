@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:AppController:Error{% endblock %}
+
+{% block body %}
+
+<section class="error-wrap">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="flash-notice">
+				<div class="alert alert-warning text-center" role="alert">
+					<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> {{ message }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+{% endblock %}
