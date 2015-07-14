@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController extends Controller
+class AppController extends Controller
 {
     /**
      * @Route("/")
@@ -15,7 +15,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
-    }
+        return array(
+                // ...
+            );    }
 
 }
