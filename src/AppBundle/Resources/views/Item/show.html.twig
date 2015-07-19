@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Item:Show{% endblock %}
+
+{% block body %}
+
+<section class="item-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>{{ item.title }} <a href="{{ path('app_item_delete', { 'id': item.id }) }}" type="button" class="delete-item pull-right"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></h3></div>
+					<div class="panel-body"
+						<p>{{ item.description }}</p>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item text-right">Enter by {{ item.createdBy.username }}</li>
+						<li class="list-group-item text-right">At {{ item.createdAt|date("d/m/Y") }} </li>
+						<li class="list-group-item text-right"><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ item.price }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock %}

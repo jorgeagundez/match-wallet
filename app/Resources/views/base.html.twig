@@ -7,10 +7,11 @@
         <title>{% block title %}Match your Wallet!{% endblock %}</title>
         
         {% block stylesheets %}
-            <!-- CSS files -->
-            <link href="{{ asset('css/main.css') }}" rel="stylesheet">
             <!-- Bootstrap -->
             <link href="{{ asset('library/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+            <!-- CSS files -->
+            <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
         {% endblock %}
         
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -19,24 +20,54 @@
     <body>
 
         <header>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ path('app_app_index') }}">Match Wallet</a>
                     </div>
-                    <div class="col-md-4 status">
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <p>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | <a href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a> </p>
-                            {% else %}
-                            <p><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav pull-right ">
+                            <li >
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <a href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a>
+                                    {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                        {# <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Change password</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                            <a href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a>
+                                            {% else %}
+                                            <p><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></p>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul> #}
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
         </header>
 
-        <div class="container">
-            {% block body %}{% endblock %}
-        </div>
+        
+        {% block body %}{% endblock %}
+        
         
 
         {% block javascripts %}

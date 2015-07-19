@@ -36,6 +36,13 @@ class Item
     private $description;
 
     /**
+     * @var decimal
+     *
+    * @ORM\Column(name="price", type="decimal", scale=2)
+     */
+    private $price;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="createdAt", type="datetime")
@@ -46,7 +53,13 @@ class Item
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Subscribed", inversedBy="items")
      */
-    private $user;
+    private $createdBy;
+
+
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime());
+    }
 
 
     /**
@@ -128,26 +141,51 @@ class Item
         return $this->createdAt;
     }
 
+   
+
     /**
-     * Set user
+     * Set price
      *
-     * @param \AppBundle\Entity\Subscribed $user
+     * @param string $price
      * @return Item
      */
-    public function setUser(\AppBundle\Entity\Subscribed $user = null)
+    public function setPrice($price)
     {
-        $this->user = $user;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get price
+     *
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \AppBundle\Entity\Subscribed $createdBy
+     * @return Item
+     */
+    public function setCreatedBy(\AppBundle\Entity\Subscribed $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
      *
      * @return \AppBundle\Entity\Subscribed 
      */
-    public function getUser()
+    public function getCreatedBy()
     {
-        return $this->user;
+        return $this->createdBy;
     }
 }

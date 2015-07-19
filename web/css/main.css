@@ -1,20 +1,92 @@
+/*
+verde: #B0C05D;
+gris: #949897;
+grisoscuro: #696c6b;
+marron: #C9CBBE;
+mate : #FAFAF8;
+mateclaro: #fcfcfc;
+*/
 
-/************/
-/*  HEADER  */
-/************/
 
-header {
-	margin-bottom: 60px;
+/***************/
+/*  BOOTSTRAP  */
+/***************/
+
+/*general */
+
+.panel-title>.small, 
+.panel-title>.small>a, 
+.panel-title>a, 
+.panel-title>small, 
+.panel-title>small>a {
+	color: #696c6b;
 }
 
-.status p {
-	line-height: 50px;
+/*main nav*/
+
+nav.navbar.navbar-default {
+	margin-bottom: 0;
+	background: #949897;
+	border-color: #C9CBBE;
+}
+
+.navbar-default .navbar-brand {
+	color: #FAFAF8;
+}
+
+.navbar-default .navbar-brand:focus, 
+.navbar-default .navbar-brand:hover {
+	color: #FAFAF8;
+}
+
+button.navbar-toggle.collapsed {
+	border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover {
+	background: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background: #FAFAF8;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	background: #FAFAF8;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #949897;
+}
+
+/*panel */
+
+.panel-group {
 	margin: 0;
 }
+
+.panel-default > .panel-heading
+{
+	background: #FAFAF8;
+}
+
 
 /*********************/
 /*  COMMON ELEMENTS  */
 /*********************/
+
+body {
+	position: relative;7
+	background: #fcfcfc;
+	color: #949897;
+}
+
+p, a, li, span, h1, h2, h3, h4, h5, h6, label, strong {
+	color: #696c6b;
+}
+
 .btn.submit-btn {
 	display: block;
 	margin: 10px auto 30px;
@@ -31,6 +103,16 @@ header {
 
 .horizontal-space {
 	margin-top: 100px;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #696c6b;
+}
+
+.green {
+	color: #B0C05D;
+	font-weight: 700;
 }
 
 /****************/
@@ -60,3 +142,136 @@ header {
   	text-decoration: none;
 }
 
+
+/****************/
+/*  INDEX PAGE  */
+/****************/
+
+/*BUTTONS*/
+
+.btn-section {
+	/*margin-top: 20px;*/
+}
+
+.btn-section .container {
+	padding: 0;
+}
+
+.add-btn {
+	padding: 10px;
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	text-transform: uppercase;
+	background: #B0C05D;
+	color: #FAFAF8;
+}
+	.add-btn:hover,
+	.add-btn:focus,
+	.add-btn:active {
+		color: #FAFAF8;
+	}
+
+	.add-btn span {
+		color: #FAFAF8;
+	}
+
+.delete-item {
+	position: absolute;
+	right: 25px;
+	top: 10px;
+}
+
+/*INFO SECTION*/
+
+.info {
+	padding: 30px 10px;
+}
+
+.info p {
+	margin: 0;
+	font-size: 16px;
+}
+
+
+/*ITEMS LIST*/
+
+.item-list .container {
+	padding: 0;
+}
+
+.total-list {
+	font-size: 30px;
+	line-height: 23px;
+}
+
+.currency {
+	line-height: 25px;
+}
+
+.items-header {
+	padding: 20px 15px;
+	border-bottom: none;
+}
+
+.date {
+	font-size: 12px;
+	color: #a1a1a1;
+	line-height: 22px;
+	padding-right: 10px;
+}
+
+.price {
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 22px;
+}
+
+.match  {
+	padding: 20px 0;
+}
+
+.match p {
+	font-size: 20px;
+	margin: 0;
+}
+
+/*item list*/
+
+.list-group-item {
+	padding: 0;
+}
+
+.show-item {
+	display: block;
+	width: 100%;
+	padding: 10px 15px;
+}
+
+/*item-show*/
+
+.item-wrap .container {
+	padding: 0;
+}
+
+.item-wrap h3 {
+	margin: 0;
+}
+
+.item-wrap .list-group-item {
+	padding: 10px 30px;
+}
+
+/*FOOTER*/
+.footer-info {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	border-top: 1px solid #e7e7e7;
+}
+
+.footer-info p {
+	line-height: 60px;
+	margin: 0;
+	text-align: center;
+}

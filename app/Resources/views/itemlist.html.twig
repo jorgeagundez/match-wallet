@@ -1,0 +1,11 @@
+{% for item in items %}
+    <li class="list-group-item">
+    	<a href="{{ path('app_item_show', { 'id': item.id }) }}" class="show-item">
+	        <span class="text-left">{{ item.title }}</span> 
+	        <span class="price pull-right">{{ item.price }}</span>
+	        <span class="glyphicon glyphicon-gbp pull-right" aria-hidden="true"></span>
+	        <span class="date pull-right">{{ item.createdAt|date("d/m/Y") }}</span>
+        </a>
+    </li>
+{% endfor %}
+    

@@ -27,7 +27,8 @@ class Subscribed extends BaseUser
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Item", mappedBy="user",cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Item", mappedBy="createdBy",cascade={"persist"})
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $items;
 

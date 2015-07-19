@@ -5,7 +5,8 @@
 
 {% block body %}
 
-		<div class="inviteby-wrap fos-wrap">
+	<div class="inviteby-wrap fos-wrap">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">	
 					<div class="panel panel-default">
@@ -19,22 +20,23 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		{% for flashMessage in app.session.flashbag.get('notice') %}
-	        <section class="flash-wrapper">
-	            <div class="container">
-	                <div class="row">
-	                    <div class="col-md-6 col-md-offset-3">
-	                        <div class="flash-notice">
-	                            <div class="alert alert-danger text-center" role="alert">
-	                                {{ flashMessage }}
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	        </section>
-	    {% endfor %}
+	{% for flashMessage in app.session.flashbag.get('notice') %}
+        <section class="flash-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="flash-notice">
+                            <div class="alert alert-danger text-center" role="alert">
+                                {{ flashMessage }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
 
 
 {% endblock %}

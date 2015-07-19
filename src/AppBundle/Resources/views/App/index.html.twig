@@ -4,12 +4,148 @@
 
 {% block body %}
 
-<section class="user-header">
-	<div class="row">
-		<h3>Welcome <span class="text-capitalize">{{ user.username }}<span></h3>
-		<p>You're matched with <span class="text-capitalize">{{ partner.username }}</span></p>
-	</div>
-</section>
+	<section class="info text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<p><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Login as <span class="text-capitalize green">{{ user.username }}</span></p>
+					<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Matched with <span class="text-capitalize green">{{ partner.username }}</span></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="btn-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<a href="{{ path('app_item_add') }}" type="button" class="add-btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Item</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="item-list user-items">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					{% set totaluser = 0 %}
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading items-header" role="tab" id="headingOne">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="link-title">
+									<div class="panel-title">
+										<strong class="text-capitalize">{{ user.username }}</strong>
+										<span class="total-list pull-right">
+											{% for item in user.items %}
+												{% set totaluser = totaluser + item.price %}
+											{% endfor %}
+											{{ totaluser }}
+										</span>
+										<span class="glyphicon glyphicon-gbp pull-right currency " aria-hidden="true"></span>
+									</div>
+								</a>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+								<ul class="list-group">
+									{% include '::itemlist.html.twig' with { 'items' : user.items } %}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="item-list partner-items">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					{% set totalpartner = 0 %}
+					<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading items-header" role="tab" id="headingTwo">
+								<a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" class="link-title">
+									<div class="panel-title">
+										<strong class="text-capitalize">{{ partner.username }}</strong>
+										<span class="total-list pull-right">
+											{% for item in partner.items %}
+												{% set totalpartner = totalpartner + item.price %}
+											{% endfor %}
+											{{ totalpartner }}
+										</span>
+										<span class="glyphicon glyphicon-gbp pull-right currency " aria-hidden="true"></span>
+									</div>
+								</a>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<ul class="list-group">
+									{% include '::itemlist.html.twig' with { 'items' : partner.items } %}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="match-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-right">
+					<div class="match">
+						{% if totaluser > totalpartner %}
+							{% set total = (totaluser - totalpartner) / 2 %}
+							<p>Balance: <strong><span class="text-success">+ {{ total }}</span></strong></p> 
+						{% elseif totaluser < totalpartner %}
+							{% set total = (totalpartner - totaluser) / 2 %}
+							<p>Balance: <strong><span class="text-danger">- {{ total }}</span></strong></p>
+						{% else %}
+							<p>Balance: <strong><span class="text-info"> Matched</span></strong></p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<a href="{{ path('app_app_match', { 'user': user.id, 'partner' : partner.id }) }}" type="button" class="btn btn-warning pull-right">Match!</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% for flashMessage in app.session.flashbag.get('notice') %}
+        <section class="flash-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="flash-notice">
+                            <div class="alert alert-success text-center" role="alert">
+                                {{ flashMessage }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+
+	<section class="footer-info navbar-default">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<p>Login as <span class="text-capitalize"><strong>{{ user.username }}</strong></span></p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 {% endblock %}
